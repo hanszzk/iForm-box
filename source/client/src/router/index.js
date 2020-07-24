@@ -1,14 +1,32 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Home from '../views/Home.vue';
+// import Home from '../views/Home.vue';
+import Layout from '@/layout'
 
 Vue.use(VueRouter);
 
 const routes = [
   {
-    path: '/',
+    path:'',
+    name: 'Login',
+    redirect:'/login'
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: () => import('../views/Login/index.vue'),
+  },
+  {
+    path: '/home',
     name: 'Home',
-    component: Home,
+    component: Layout,
+    redirect: '/home/list',
+    children: [{
+      path: 'list',
+      name: 'List',
+      component: () => import('../views/table/index.vue'),
+      meta: { title: 'List', icon: 'dashboard' }
+    }]
   },
   {
     path: '/about',

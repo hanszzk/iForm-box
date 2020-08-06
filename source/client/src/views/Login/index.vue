@@ -80,7 +80,7 @@ export default {
     submitBtn() {
       this.$refs['form'].validate(valid => {
         if (valid) {
-          this.$http.post('/api/auth/login', this.user).then(data => {
+          this.$http.post('/api/user/login',this.user).then(data => {
             console.log(data);
             this.$message({
               message: '登录成功',

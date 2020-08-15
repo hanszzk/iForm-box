@@ -1,15 +1,15 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 // import Home from '../views/Home.vue';
-import Layout from '@/layout'
+import Layout from '@/layout';
 
 Vue.use(VueRouter);
 
 const routes = [
   {
-    path:'',
+    path: '',
     name: 'Login',
-    redirect:'/login'
+    redirect: '/login',
   },
   {
     path: '/login',
@@ -21,12 +21,14 @@ const routes = [
     name: 'Home',
     component: Layout,
     redirect: '/home/list',
-    children: [{
-      path: 'list',
-      name: 'List',
-      component: () => import('../views/table/index.vue'),
-      meta: { title: 'List', icon: 'dashboard' }
-    }]
+    children: [
+      {
+        path: 'list',
+        name: 'List',
+        component: () => import('../views/table/index.vue'),
+        meta: { title: 'List', icon: 'dashboard' },
+      },
+    ],
   },
   {
     path: '/about',

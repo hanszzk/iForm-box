@@ -29,7 +29,10 @@
             </el-row>
             <el-row class="form-item">
               <el-col>
-                <el-form-item prop="password" :rules="[{ required: true, message: '密码不能为空' }]">
+                <el-form-item
+                  prop="password"
+                  :rules="[{ required: true, message: '密码不能为空' }]"
+                >
                   <el-input
                     suffix-icon="el-icon-lock"
                     type="password"
@@ -47,7 +50,13 @@
               </el-col>
             </el-row>
             <el-row class="form-item">
-              <el-button type="primary" class="submit-btn" size="small" @click="submitBtn">登 录</el-button>
+              <el-button
+                type="primary"
+                class="submit-btn"
+                size="small"
+                @click="submitBtn"
+                >登 录</el-button
+              >
             </el-row>
           </div>
           <el-row class="tips">
@@ -80,7 +89,9 @@ export default {
     submitBtn() {
       this.$refs['form'].validate(valid => {
         if (valid) {
-          this.$http.post('/api/user/login',this.user).then(data => {
+          // this.$api.user.login(this.user).then(data => {
+          this.$axios.post('/api/user/login', this.user).then(data => {
+            sessionStorage.setItem('token', data.access_token);
             console.log(data);
             this.$message({
               message: '登录成功',

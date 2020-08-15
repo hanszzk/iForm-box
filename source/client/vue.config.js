@@ -5,7 +5,7 @@ module.exports = {
     proxy: {
       '/cnode': {
         //要访问的跨域的域名
-        target: 'https://cnodejs.org',//'http://localhost:3000',
+        target: 'https://cnodejs.org', //'http://localhost:3000',
         ws: true,
         secure: true, // 使用的是http协议则设置为false，https协议则设置为true
         changOrigin: true,

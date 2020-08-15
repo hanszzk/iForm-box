@@ -17,7 +17,12 @@
       </el-form>
     </el-card>
     <el-card class="table-card">
-      <el-alert title="消息提示的文案" type="info" description="文字说明文字说明文字说明文字说明文字说明文字说明" show-icon></el-alert>
+      <el-alert
+        title="消息提示的文案"
+        type="info"
+        description="文字说明文字说明文字说明文字说明文字说明文字说明"
+        show-icon
+      ></el-alert>
       <el-table :data="tableData" border style="width: 100%">
         <el-table-column prop="date" label="日期" width="180"></el-table-column>
         <el-table-column prop="name" label="姓名" width="180"></el-table-column>
